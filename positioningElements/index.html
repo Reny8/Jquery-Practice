@@ -14,7 +14,7 @@
     <script>
       $(function () {
         $("#moveMe").draggable();
-        $("#moveMe").mouseover(getPosition);
+        $("#moveMe").mousemove(getPosition);
         $("#controls button").click(function (event) {
           let button = event.target.childNodes[0].nodeValue;
           if (button === "Up") {
@@ -26,7 +26,7 @@
           } else if (button === "Right") {
             $("#moveMe").css("left", "+=10");
           }
-          getPostion();
+          getPosition();
         });
       });
 
