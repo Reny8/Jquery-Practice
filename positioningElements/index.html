@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <title>Positioning Elements</title>
+    <script>
+      $(function () {
+        $("#moveMe").draggable();
+        $("#moveMe").mouseover(getPosition);
+        $("#controls button").click(function (event) {
+          let button = event.target.childNodes[0].nodeValue;
+          if (button === "Up") {
+            $("#moveMe").css("top", "-=10");
+          } else if (button === "Down") {
+            $("#moveMe").css("top", "+=10");
+          } else if (button === "Left") {
+            $("#moveMe").css("left", "-=10");
+          } else if (button === "Right") {
+            $("#moveMe").css("left", "+=10");
+          }
+          getPostion();
+        });
+      });
+
+      function getPosition() {
+        let position = $("#moveMe").position();
+        let posX = Math.round(position.top);
+        let posY = Math.round(position.left);
+        let out = "Position X: " + posX + " Y: " + posY;
+        $("#posOut").text(out);
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #moveMe {
+        background-color: orange;
+        height: 200px;
+        width: 200px;
+      }
+      #container {
+        margin: 10px;
+      }
+      #controls {
+        margin-top: 20px;
+        width: 220px;
+        text-align: center;
+      }
+      #controls button {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <output id="posOut"></output>
+      <div id="moveMe"></div>
+      <div id="controls">
+        <button>Up</button>
+        <button>Left</button><button>Right</button>
+        <button>Down</button>
+      </div>
+    </div>
+  </body>
+</html>
