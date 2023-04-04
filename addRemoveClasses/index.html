@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Adding and Removing Classes Example</title>
+    <script>
+      $(function () {
+        $("tr")
+          .mouseover(function (event) {
+            $(this).addClass("over");
+          })
+          .mouseleave(function () {
+            $(this).removeClass("over");
+          })
+          .click(function () {
+            if ($(this).hasClass("clicked")) {
+              $(this).removeClass("clicked");
+            } else {
+              $(this).removeClass("over").addClass("clicked");
+            }
+          });
+      });
+    </script>
+    <style>
+      table {
+        width: 100%;
+        margin: 7px;
+        border: solid 1px black;
+        border-collapse: collapse;
+        background-color: #f3f3f3;
+      }
+      caption {
+        border: solid 1px black;
+        padding: 8px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+      }
+      td,
+      tr,
+      th {
+        border: solid 1px black;
+        padding: 5px;
+      }
+      #container {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+      }
+      .over {
+        background-color: #ff8b00;
+        color: white;
+      }
+      .clicked {
+        background-color: #1276bc;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <table>
+        <caption>
+          CHOOSE YOUR FAVORITE POWER BALLAD
+        </caption>
+        <tr>
+          <td>Journey</td>
+          <td>Faithfully</td>
+        </tr>
+        <tr>
+          <td>REO Speedwagon</td>
+          <td>Keep on Loving You</td>
+        </tr>
+        <tr>
+          <td>Mr.Mister</td>
+          <td>Kyrie</td>
+        </tr>
+        <tr>
+          <td>Cheap Trick</td>
+          <td>The Flame</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
