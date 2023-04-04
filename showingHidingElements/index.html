@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>SHOW AND HIDE EXAMPLE</title>
+    <script>
+      $(function () {
+        $("body").click(function (event) {
+          let target = event.target.id;
+          if (target === "btnEffectBlue") {
+            $("#effectsTargetA").hide();
+          } else if (target === "btnEffectGray") {
+            $("#effectsTargetB").hide();
+          } else if (target === "btnEffectOrange") {
+            $("#effectsTargetC").hide();
+          } else if (target === "btnEffectShowAll") {
+            $("div div").show();
+          }
+        });
+      });
+    </script>
+    <style>
+      #effectsTargetA,
+      #effectsTargetB,
+      #effectsTargetC {
+        height: 300px;
+        width: 300px;
+        margin: 0px 5px 15px 5px;
+      }
+      #effectsTargetA {
+        background-color: blue;
+      }
+      #effectsTargetB {
+        background-color: gray;
+      }
+      #effectsTargetC {
+        background-color: orange;
+      }
+      .box-container {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box-container">
+        <div id="effectsTargetA"></div>
+        <div id="effectsTargetB"></div>
+        <div id="effectsTargetC"></div>
+      </div>
+      <button id="btnEffectBlue">HIDE BLUE</button>
+      <button id="btnEffectGray">HIDE GRAY</button>
+      <button id="btnEffectOrange">HIDE ORANGE</button>
+      <button id="btnEffectShowAll">SHOW ALL</button>
+    </div>
+  </body>
+</html>
