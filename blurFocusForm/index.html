@@ -8,23 +8,28 @@
     <title>Blur And Focus Form Elements</title>
     <script>
       $(function () {
-        $("p").hide();
-        $("input")
-          .focus(function () {
-            $(this).css("background-color", "#f7090999");
-          })
-          .blur(function () {
-            $(this).css("background-color", "white");
-          });
-
-        $("input:last")
-          .focus(function () {
-            $("p").slideDown();
-          })
-          .blur(function () {
-            $("p").slideUp();
-          });
+        $("form").submit(function (e) {
+          e.preventDefault();
+          console.log($(this).serialize());
+        });
       });
+
+      $("p").hide();
+      $("input")
+        .focus(function () {
+          $(this).css("background-color", "#f7090999");
+        })
+        .blur(function () {
+          $(this).css("background-color", "white");
+        });
+
+      $("input:last")
+        .focus(function () {
+          $("p").slideDown();
+        })
+        .blur(function () {
+          $("p").slideUp();
+        });
     </script>
     <style>
       #container {
@@ -46,6 +51,9 @@
       input:last-of-type {
         margin-bottom: 15px;
       }
+      select {
+        margin-bottom: 15px;
+      }
       h1 {
         font-size: 1.25em;
       }
@@ -55,11 +63,17 @@
     <div id="container">
       <form id="form">
         <h1 id="form-h1">Sign In To Your Account</h1>
-        <label>Username </label>
-        <input id="username" />
-        <label>Password </label>
-        <input id="password" />
-        <p>Make Sure Your Password Is Secret</p>
+        <label for="username">Username </label>
+        <input id="username" name="username" />
+        <label for="password">Password </label>
+        <input id="password" name="password" />
+        <select id="country" name="country">
+          <option id="usa">USA</option>
+          <option id="canada">Canada</option>
+          <option id="mexico">Mexico</option>
+          <option id="other">Other</option>
+        </select>
+        <p>Always Keep Your Password Secret</p>
         <button id="button">LOGIN</button>
       </form>
     </div>
