@@ -6,22 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Blur And Focus Form Elements</title>
+    <script>
+      $(function () {
+        $("p").hide();
+        $("input")
+          .focus(function () {
+            $(this).css("background-color", "#f7090999");
+          })
+          .blur(function () {
+            $(this).css("background-color", "white");
+          });
+
+        $("input:last")
+          .focus(function () {
+            $("p").slideDown();
+          })
+          .blur(function () {
+            $("p").slideUp();
+          });
+      });
+    </script>
     <style>
       #container {
         display: flex;
         justify-content: center;
+        align-items: center;
+        height: 100vh;
       }
       #form {
         display: flex;
         flex-direction: column;
         border: dotted 1px black;
         padding: 30px;
+        box-shadow: 2px 2px 6px #7d7d7d;
       }
       label {
         padding: 5px 0px 0px 0px;
       }
       input:last-of-type {
         margin-bottom: 15px;
+      }
+      h1 {
+        font-size: 1.25em;
       }
     </style>
   </head>
@@ -33,6 +59,7 @@
         <input id="username" />
         <label>Password </label>
         <input id="password" />
+        <p>Make Sure Your Password Is Secret</p>
         <button id="button">LOGIN</button>
       </form>
     </div>
