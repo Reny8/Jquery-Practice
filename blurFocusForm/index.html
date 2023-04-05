@@ -12,24 +12,24 @@
           e.preventDefault();
           console.log($(this).serialize());
         });
+
+        $("p").hide();
+        $("input")
+          .focus(function () {
+            $(this).css("background-color", "#f7090999");
+          })
+          .blur(function () {
+            $(this).css("background-color", "white");
+          });
+
+        $("input:last")
+          .focus(function () {
+            $("p").slideDown();
+          })
+          .blur(function () {
+            $("p").slideUp();
+          });
       });
-
-      $("p").hide();
-      $("input")
-        .focus(function () {
-          $(this).css("background-color", "#f7090999");
-        })
-        .blur(function () {
-          $(this).css("background-color", "white");
-        });
-
-      $("input:last")
-        .focus(function () {
-          $("p").slideDown();
-        })
-        .blur(function () {
-          $("p").slideUp();
-        });
     </script>
     <style>
       #container {
@@ -51,11 +51,17 @@
       input:last-of-type {
         margin-bottom: 15px;
       }
-      select {
-        margin-bottom: 15px;
-      }
       h1 {
         font-size: 1.25em;
+      }
+      select {
+        margin-bottom: 5px;
+      }
+      p {
+        margin: 0;
+      }
+      button {
+        margin-top: 5px;
       }
     </style>
   </head>
